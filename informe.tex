@@ -1,0 +1,833 @@
+%
+% Carátula para 75.02 / 95.11 Algoritmos y Programación I.
+%
+% Basado en el template realizado por Diego Essaya, disponible en
+%                                                         http://lug.fi.uba.ar
+% Modificado por Sebastián Santisi.
+% 2007: Modificado por Patricio Moreno y Michel Peterson.
+% 2014: Modificado por Patricio Moreno.
+% 2017: Modificado por Patricio Moreno.
+
+% Acá se define el tamaño de letra principal:
+% Para utilizar los estilos de KOMA-script, descomentar la línea siguiente y
+% comentar la que le sigue (dejar sin comentar un único documentclass)
+%\documentclass[10pt, spanish]{scrartcl}
+\documentclass[a4paper, 10pt, spanish]{article}
+\usepackage{color}
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
+\definecolor{orange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{green}{rgb}{0.33, 0.42, 0.18}
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+\usepackage{anysize}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage{array} % 1
+\usepackage{graphicx}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{courier}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{SIunits}
+\usepackage{listings}
+\usepackage{pgfplots,filecontents}
+\pgfplotsset{compat=1.7}
+\usepackage[siunitx]{circuitikz}
+\usepackage{subcaption}
+
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{asmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONFIGURACIONES GENERALES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición del tamaño de página y los márgenes:
+% Si preferís menos márgenes, descomentá la línea siguiente
+%\usepackage[a4paper,headheight=16pt,scale={0.7,0.8},hoffset=0.5cm]{geometry}
+\usepackage{listings}
+\lstset{ frame=Ltb,
+     framerule=0pt,
+     aboveskip=0.5cm,
+     framextopmargin=3pt,
+     framexbottommargin=3pt,
+     framexleftmargin=0.4cm,
+     framesep=0pt,
+     rulesep=.4pt,
+     backgroundcolor=,
+     rulesepcolor=\color{cadet},
+     %
+     stringstyle=\ttfamily\color{cadet}, %ttfamily
+     showstringspaces = false,
+     basicstyle=\small\ttfamily,    %ttfamily
+     commentstyle=\itshape\color{cadet},
+     keywordstyle=\small\ttfamily\color{cadet},
+     identifierstyle=,
+     %        
+     numbers=left,
+     numbersep=15pt,
+     numberstyle=\tiny,
+     numberfirstline = false,
+     breaklines=true,
+     inputencoding=utf8,
+     extendedchars=true,
+    literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1,
+   }
+
+\usepackage{babel}  % contiene la correcta separación en sílabas del español
+\usepackage[utf8x]{inputenc}    % porque el encoding del documento es UTF-8
+
+
+
+\usepackage{floatrow}
+%
+% El paquete amsmath agrega algunas funcionalidades extra a las fórmulas.
+% Además defino la numeración de las tablas y figuras al estilo "Figura 2.3",
+% en lugar de "Figura 7". (Por lo tanto, aunque no uses fórmulas, si querés
+% este tipo de numeración dejá el paquete amsmath descomentado).
+%
+\usepackage{amsmath, amsfonts, amssymb}
+\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+\numberwithin{table}{section}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENCABEZADO y PIE DE PÁGINA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}   % Para poder personalizarlo
+\usepackage{lastpage}   % Para poder saber cuántas páginas tiene el documento
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
+\fancyhead{}	% Elimino el contenido del encabezado
+% El siguiente texto a la derecha (izquierda) en páginas pares (impares)
+\fancyhead[RE,LO]{86.03 - Dispositivos Semiconductores - Trabajo práctico N\textsuperscript{o}4}
+\fancyhead[R]{FIUBA}
+
+\fancyfoot{}	% Elimino el contenido del pie de página
+% A la izquierda (derecha) en páginas pares (impares): nro. de página / total
+\fancyfoot[LE,RO]{\thepage/\pageref{LastPage}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hipervínculos (enlaces) en el documento (y modificación de atributos)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{caption}
+\captionsetup[table]{belowskip=0.5cm}
+
+\usepackage{subfigure}
+\usepackage{url}
+\urlstyle{tt}
+\usepackage[colorlinks=true,linkcolor=black, urlcolor=blue]{hyperref}
+\hypersetup{
+    breaklinks,
+    baseurl       = http://,
+    pdfborder     = 0 0 0,
+    pdfpagemode   = UseNone,
+    pdfstartpage  = 1,
+    pdfcreator    = {Plantilla de informe de TP para \LaTeX{}},
+    bookmarksopen = true,
+    bookmarksdepth= 2,% to show sections and subsections
+    pdfauthor     = {González},
+    pdftitle      = {Dispositivos Semiconductores - Tp 4},
+    pdfsubject    = {Informe},
+    pdfkeywords   = {}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LISTAS (para poder modificar los 'bullets' de las listas)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLAS (para que se vean bien)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMÁGENES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para incluir imágenes, el siguiente código carga el paquete graphicx
+% según se esté generando un archivo dvi o un pdf (con pdflatex).
+
+% Para generar dvi, descomentá la linea siguiente:
+%\usepackage[dvips]{graphicx}
+
+% Para generar pdf, descomentá las dos lineas seguientes:
+\usepackage{graphicx}
+\pdfcompresslevel=9
+
+% Todas las imágenes están en el directorio imgs:
+\newcommand{\imgdir}{imgs}
+\graphicspath{{\imgdir/}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\usepackage{blindtext}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMANDOS UTILES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% los siguientes comandos permiten escribir de manera uniforme en todo el
+% documento
+
+% Para poder manejar los espacios al final de los comandos propios
+\usepackage{xspace}
+
+% Abreviatura de 'número' utilizando letras voladas (correcto español)
+\newcommand{\Nro}{N.\textsuperscript{o}\xspace}
+\newcommand{\nro}{n.\textsuperscript{o}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INICIO DEL DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mymeter}[2] 
+{  % #1 = name , #2 = rotation angle
+\begin{scope}[transform shape,rotate=#2]
+\draw[thick] (#1)node(){$\mathbf V$} circle (11pt);
+\draw[rotate=45,-latex] (#1)  +(-17pt,0) --+(17pt,0);
+\end{scope}
+}
+
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\marginsize{2cm}{2cm}{2cm}{2cm}
+
+%
+% Hago que las páginas se comiencen a contar a partir de aquí:
+%
+\setcounter{page}{1}
+
+%
+% Pongo el índice en una página aparte:
+%
+
+
+%
+% Inicio del TP:
+%
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE{\bfseries Trabajo Práctico N\textsuperscript{o}4}}\\
+{\LARGE{\bfseries Diseño y construcción de un mini amplificador}}\\
+{\large{\bfseries 86.03 Dispositivos Semiconductores - FIUBA}}\\
+{\large{\bfseries 1\textsuperscript{er} Cuatrimestre - 2018}}
+\end{center}
+
+\hspace
+
+\begin{center}
+{\large{\textfont{José F. González - 100063 - \footnotesize{\verb!<jfgonzalez@fi.uba.ar>!}}}}\\
+{\large{\textfont{Mariano D. Pinto - 99464 - \footnotesize{\verb!<madapinto@gmail.com>!}}}}\\
+{\large{\textfont{Nicolas Toscani - 99066 - \footnotesize{\verb!<nicolastoscani83@gmail.com>!}}}}\\
+{\large{\textfont{Axel Franco - 98614 - \footnotesize{\verb!<axelfranco26@gmail.com>!}}}}\\
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Especificaciones}
+Necesitamos diseñar un amplificador del tipo emisor común (figura 1), donde el transistor es un TBJ NPN BC317, con un parámetro $\beta = 262$ que opere con una tensión de $3.6\ V$ de una batería de $3600\ mAh$ y dure mínimo 96 hs. Su función será la de amplificar señales de $60\ mV_{pico}$ y $1\ kHz$ provenientes de un micrófono de $4.4\ k\Omega$ resistencia serie hacía la entrada de un conversor analógico digital de rango 0 - $3.6\ V$.
+
+\section{Diseño del ampĺificador}
+                                        \begin{figure}[h!]
+                                            \centering
+                                            \begin{circuitikz}
+                                         \draw
+                                          % Drawing a npn transistor
+                                          (0,0) node[npn](npn1){} 
+                                          % Making connections from transistor using relative coordinates
+                                          (npn1.B) node[left=6mm, above=-6mm]{BC337} % Labelling the transistor
+                                          (npn1.B) -- ++(-0.5,0) to[short] ++(0,0.85) to[R] node[left]{$R_b$} ++(0,1.5) to[short] node[right=6mm,above=2mm]{$Vcc$} ++(0,0.5) to[short] ++(1.36,0)
+                                          (npn1.C) -- ++(0,0) to[R] node[right]{$R_c$} ++(0,1.5) to[short] ++(0,0.58)
+                                          (npn1.C) -- ++(0,0) to[short,*-o] ++(1,0) node[right=2mm]{$V_{out}$} 
+                                          (npn1.B) -- ++(-0.5,0) to[short,*-o] ++(-1,0) node[left=2mm]{$V_{in}$} 
+                                          (npn1.E) -- ++(0,0) node[ground]  
+                                          %(nmos1.D) -- ++(0,0.46) to[ammeter,mirror] ++(-2.7,0)
+                                          %(nmos1.D) -- ++(0,0) to[short,*-] ++(1,0) to[voltmeter,color=white,name=M] ++(0,-1.55)
+                                          %(nmos1.S) -- ++(0,0) to[short] ++(-2,0)
+                                          %(nmos1.S) -- ++(0,0) to[short] ++(2,0) to[short] ++(0,1) to[battery] node[right]{$5 V$} ++(0,1.75) to[short] ++(-5,0) to[pR] node[left=6mm,above=10mm]{$1k\Omega$} ++(0,-1.5) to[short] ++(0,-1.25) to[short] ++(2,0)
+                                          %(nmos1.S) -- ++(0,-0.25) node[ground]  
+                                          ;
+                                          %\mymeter{M}{0}
+                                            \end{circuitikz}
+                                            \caption{Amplificador - Emisor Común}
+                                          \end{figure}
+
+
+El amplificador consiste en un emisor común donde, regulando las resistencias $R_B$ y $R_C$, podemos variar el punto de operación del transistor. Se busca que el transistor opere en todo momento en \textbf{modo activo directo}, región el la cuál tiene más ganancia. Asumiendo MAD y analizando las mallas de entrada y salida se obtienen las ecuaciones (2.1), (2.2) y (2.3) que relacionan el punto de polarización con los valores de las resistencias.
+
+\begin{equation}
+V_{CC} - I_{BQ} R_B - V_{BE}_{on} = 0
+\end{equation}
+\begin{equation}
+V_{CC} - I_{CQ} R_C - V_{CEQ} = 0
+\end{equation}
+\begin{equation} \label{eq:3}
+I_{CQ} = \beta \cdot I_{BQ}
+\end{equation}
+
+Para aprovechar al máximo la amplificación (\textbf{criterio de máxima amplificación}) debemos buscar el punto de polarización que da mayor ganancia. Supongamos que el dispositivo opera en el rango de validez del modelo de pequeña señal del transistor ($v_{be} = v_{in} < 10\ mV$) en tal caso la ganancia $A_{vo}$ está determinada por la ecuación (2.4), donde al ser $r_o >> R_C$ se aproxima como $(r_o//R_C) \approx R_C$. En la ecuación (2.4) podemos observar que a medida que la tensión de polarización $V_{CEQ}$ disminuye la ganancia $A_{vo}$ aumenta en módulo, maximizar la ganancia implica buscar $V_{CEQ}$ mínimo sin que haya recorte de ningún tipo.
+
+\begin{equation}
+A_{vo} = -g_{m}(r_o // R_C) \approx -\frac{I_{CQ}R_C}{V_{TH}} = -\frac{V_{CC} - V_{CEQ}}{V_{TH}}
+\end{equation}
+
+\begin{equation}
+v_0 = A_{vo}\cdot v_i = \frac{V_{CC} - V_{CEQ}}{V_{TH}} \cdot v_i
+\end{equation}
+
+También podemos obtener una expresión para la corriente del colector si seguimos asumiendo que el transistor trabaja dentro del rango de pequeña señal. Analizando la entrada se tiene que la tensión de entrada $v_i$, que es igual a la tensión $v_{be}$, es la tensión $v_s$ que cae en la resistencia $r_\pi//R_B$ del divisor resistivo. Teniendo esto en cuenta y siendo $r_\pi = V_{TH}\beta/I_{CQ}$ un valor dependiente de la polarización que cumple $r_\pi << r_B$ se puede aproximar la tensión de entrada dada en la ecuación (2.5). Reemplazando a $r_\pi$ se despeja de (2.5) la corriente de colector en función de la relación $v_s / v_i$ dada en la ecuación (2.7)
+
+\begin{equation}
+v_{be} =  v_s \cdot \frac{R_{IN}}{R_S + R_{IN}} = v_s \cdot \frac{(r_\pi//r_B)}{R_S + (r_\pi//R_B)} \approx v_s \cdot \frac{r_\pi}{R_S + r_\pi}
+\end{equation}  
+
+\begin{equation}
+I_{CQ} = (\frac{v_s}{v_i} - 1)\frac{\beta V_{TH}}{R_S}
+\end{equation}
+
+En las siguientes secciones estudiamos para que valores de $R_C$ y $R_B$ las ecuaciones (2.4) y (2.7) determinan una ganancia $A_{vo}$ máxima y sin recorte de ningún tipo.
+
+\vspace{5cm}
+\begin{figure}[h!]
+                                            \centering
+                                            \begin{circuitikz}
+                                         \draw
+                                          % Drawing a npn transistor
+                                          (0,0) -- ++(0,0) to[R,*-] node[above=6mm,right=2mm]{$R_B$} ++(0,-2) to[short] ++(6,0)
+                                          ;
+                                         \draw
+                                          (0,0) -- ++(0,0) to[short] ++(1,0) to[R,-*] node[above=5mm,right=2mm]{$r_\pi$} ++(0,-2)
+                                          ;
+                                         \draw
+                                          (2,-2) -- ++(0,0) to[american current source,*-] node[right]{$g_m v_{be}$} ++(0,2) to[short] ++(2,0) to[R,*-*] node[right=4mm,above=12mm]{$r_o$} ++(0,-2)
+                                          ; 
+                                         \draw
+                                          (6,-2) -- ++(0,0) to[R,-*] node[right=4mm,above=-4mm]{$R_C$} ++(0,2) to[short] ++(-2,0)
+                                          (4,-2) -- ++(0,0) node[ground]
+                                          ;
+                                         \draw
+                                          (-0.5,-2.5) -- ++(0,0) node[right]{$v_i$} to[short] ++(0,2) node[vcc]
+                                          ;
+                                         \draw
+                                          (7,-2.5) -- ++(0,0) node[right]{$v_{out}$} to[short] ++(0,2) node[vcc]
+                                          ;
+                                         \draw
+                                          (6,0) -- ++(0,0) to[short,-o] ++(2,0)
+                                          (0,0) -- ++(0,0) to[R] node[above]{$R_S$} ++(-3,0) to[sV] node[right]{$v_s$} ++(0,-2) node[ground] 
+                                          %\mymeter{M}{0}
+                                            \end{circuitikz}
+                                            \caption{Modelo de pequña señal a bajas frecuencias.}
+                                          \end{figure}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newpage
+\subsection{Límites de operación}
+
+
+Hay un límite máximo para la corriente del colector en Modo Activo Directo determinada por la carga de la batería y el tiempo mínimo de operación. Despejando de la corriente del emisor y usando la relación (2.3) se tiene una cota máxima de corriente de colector. Luego de (2.1) se obtiene un valor mínimo de resistencia de base para tal corriente:
+
+\begin{equation}
+I_C_{max} + I_B_{max} = I_C_{max} \cdot (1 + \frac{1}{\beta}) = \frac{3600\ mAh}{96\ h} \Rightarrow I_C_{max} = 37.35\ mA \nonumber
+\end{equation}
+\begin{equation}
+R_{B}_{min} = \frac{V_{CC} - V_{BE}_{on}}{I_B_{max}} = 20.34\ k\Omega \nonumber
+\end{equation}
+
+
+Hay un límite mínimo para la corriente del colector dada por la validez del modelo de pequeña señal. Si no se cumple que $v_{be} < 10\ mV$ entonces no se puede relacionar las tensiones de entrada y salida linealimente, es decir, $v_{out} \neq \alpha v_{in}$. Los parámetros de pequeña señal están determinados por el punto de polarización según las ecuaciones (2.4) y (2.7) suponiendo que la ecuación (2.7) todavía es válida en el límite $v_{be} = 10\ mV$ se obtiene un valor de corriente de colector mínima para que dispositivo no tenga \textbf{recorte por alinealidad}, relacionada con un valor de resistencia de base máxima por la ecuación de malla (2.1).
+
+\begin{equation}
+I_{CQ}_{min} = (\frac{v_s}{10\ mV} - 1)\frac{\beta V_{TH}}{R_S} = 7.71\ mA \nonumber
+\end{equation}
+
+\begin{equation}
+R_{B}_{max} = \frac{V_{CC} - V_{BE}_{on}}{I_B_{min}} = 98.55\ k\Omega \nonumber
+\end{equation}
+
+La ecuación (2.4) determina un valor mínimo de $V_{CEQ}$ tal que el transistor no entre en la \textbf{zona de saturación} ($V_{CE}_{sat} = 0.2\ V$). Siendo $v_o = A_{vo} \cdot v_i$ se pide que la máxima amplitud pico de salida nunca llegue a entrar en saturación, es decir, $v_o < V_{CEQ} - V_{CE}_{sat}$, de donde se despeja un valor mínimo de tensión colector-emisor.
+
+\begin{equation}
+v_0 = A_{vo}\cdot v_i = \frac{V_{CC} - V_{CEQ}}{V_{TH}} \cdot v_i < V_{CEQ} - V_{CE}_{sat} \nonumber
+\end{equation}
+
+\begin{equation}
+V_{CE}_{min} = 1.14\ V \nonumber
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Elección de resistencias}
+Con la cotas anteriores para las corrientes y la ecuación (2.4) podemos determinar un valor de $V_{CEQ}$ que simultaneamente evite la distorsión por saturación y por alinealidad con la máxima ganancia posible.\textbf{ Como criterio fijamos un valor de tensión base - emisor en v\textsubscript{be} = 8 mV} tal que nos aseguremos que el transistor no distorsione por alinealidad con un margén de error del\ 20\% del máximo de $10\ mV$. Tomando este valor de $v_{be}$ queda inmediatamente determinado un valor $V_{CEQ}$ y un \textbf{punto de polarización teórico}, dado por las ecuaciones (2.1) a (2.7), resumido en el cuadro (2.1). Las resistencias obtenidas para esta polarización deben ser normalizadas, la más cercana para $R_B$ es normalizarla a $82\ k\Omega$, mientras que para $R_C$ tenemos dos opciones, la primera es normalizarla como $220\ \Omega$ y la otra es normalizarla como $270\ \Omega$ obteniendo una mayor ganancia pero estando más cerca del límite de distorsión por saturación ($R_C \uparrow,v_o \uparrow  ,V_{CEQ} \downarrow$). Adoptamos la resistencia de $270\ \Omega$, el nuevo \textbf{punto de polarización normalizado} y sus correspondientes \textbf{parámetros del amplificador normalizados} se representan en el cuadro (2.2). En las secciones siguientes se analizan las distorsiones, las máximas señales del micrófono, la dispersión de $\beta$ y se simula esta elección de resistencias $R_B = 82\ k\Omega$ y $R_C = 270\ \k\Omega$. 
+
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{Punto de Trabajo Teórico}                             & \multicolumn{2}{|c|}{Resistencias Teóricas} & \multicolumn{4}{|c|}{Parámetros del Amplificador Teóricos}       \\ \hline
+    $V_{CEQ}\ (V)$       & $I_{CQ}\ (mA)$        & $I_{BQ}\ (uA)$              & $R_C\ (\Omega)$ & $R_B\ (k\Omega)$          & $R_{IN}\ (\Omega)$ & $R_{OUT}\  (\Omega)$ & $A_{vo}$  & $A_{vs}$ \\ \hline
+    \multirow{3}{*}{1.3} & \multirow{3}{*}{10.02}& \multirow{3}{*}{38.26}      &                 &                           &              &                            &           &          \\ 
+                         &                       &                             & 229.54          & 75                        &  677.22      &      229.54                &    -88.8  &  -11.84  \\  
+                         &                       &                             &                 &                           &              &                            &           &          \\  
+    \hline
+\end{tabular}
+\end{center}
+\caption{Punto de polarización y parámetros teóricos}
+\label{tab:multicol}
+\end{table}
+
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{Punto de Trabajo Normalizado}                      & \multicolumn{2}{|c|}{Resistencias Norm.} & \multicolumn{4}{|c|}{Parámetros del Amplificador normalizados}  \\ \hline
+    $V_{CEQ}\ (V)$        & $I_{CQ}\ (mA)$         & $I_{BQ}\ (uA)$         &  $R_C\ (\Omega)$ & $R_B\ (k\Omega)$             & $R_{IN}\ (\Omega)$ & $R_{OUT}\ (\Omega)$ & $A_{vo}$  & $A_{vs}$  \\ \hline
+    \multirow{3}{*}{1.099}& \multirow{3}{*}{9.26}  & \multirow{3}{*}{35}   &             &                                    &                    &                     & \multirow{3}{*}{96.53} &\multirow{3}{*}{13.78}  \\
+                          &                        &                        &  270       &  82                                & 732.81            &  270                &             &           \\  
+                          &                        &                        &            &                                    &                  &                     &              &            \\  
+    \hline
+\end{tabular}
+\end{center}
+\caption{Punto de polarización y parámetros normalizados}
+\label{tab:multicol}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\newpage
+\subsection{Análisis de distorsiones}
+Para la polarización determinada por las resistencias $R_B$ y $R_C$ elegidas se analizan las máximas señales $v_s$ del micrófono sin que haya distorsión en la señal de salida $v_o$.
+
+\subsubsection{Distorsión por corte}
+La variación $v_o + V_O$ de la señal amplificada no puede superar la tensión con que es alimentado el amplificador. Determinando un límite de la señal $v_s$ del micrófono dado por:
+
+\begin{equation}
+v_{o}_{max} = I_{CQ} R_C = 2.50\ V \nonumber
+\end{equation}
+
+\begin{equation}
+v_s_{max} = \frac{v_{o}_{max}}{A_{vs}} = 181.44\ mV \nonumber
+\end{equation}
+
+\subsubsection{Distorsión por alinealidad}
+En el diseño del amplificador se aplicó como criterio una cota máxima para mantener la validez del modelo de pequeña señal de $v_{be} = v_{in} = 8 \mV$ con una amplitud de señal del micrófono de $60\ mV$. Verificamos cuál es el valor de $v_s$ máximo, luego de haber normalizado las resistencias, tomando como caso límite $v_{be} = 10\ mV$.
+
+\begin{equation}
+v_{be} < 10\ mV \Rightarrow v_s = v_{be}\frac{R_{IN} + R_S}{R_{IN}} < 70\ mV \nonumber
+\end{equation}
+
+
+\subsubsection{Distorsión por saturación}
+La variacion de $v_o$ no puede ser tal que la señal total $V_{CE} + v_o$ entre momentaneamente en región de saturación ($V_{CE} + v_o < 0,2\ V$). Queda determinada así otra cota para $v_s$ del microfono según:
+
+\begin{equation}
+v_{o}_{max} = V_{CEQ} - V_{CE}_{sat} = 0.899\ V \nonumber
+\end{equation}
+
+\begin{equation}
+v_s_{max} = \frac{v_o}{A_{vs}} = 65.24\ mV \nonumber
+\end{equation}
+
+La distorsión por saturación resulta ser el caso limitante para la señal del micrófono, con un máximo de $65\ mV$. En la implementación la señal del micrófono será de $60\ mV$ tal que admitirá un acotado margen de variación de $1 \%$ de la señal de entrada sin distorsión. El margen de error para $v_s$ es tan pequeño debido a que el criterio de máxima ganancia aplicado disminuyó la tensión $V_{CEQ}$ para aumentar la ganancia a expensas de estar más cerca de la zona de saturación. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Dispersión de $\beta$}
+De la hoja de datos del transistor\footnote{\url{https://www.onsemi.com/pub/Collateral/BC337-D.PDF}} se obtiene un rango de posibles valores para el parámetro $\beta$.
+
+\begin{equation}
+100 < \beta < 630 \nonumber
+\end{equation}
+
+Determinando unos corrimientos máximos y mínimos del punto de trabajo del transistor si se implementace este diseño con alguno de los $\beta$ extremos, dados en el cuadro (2.3). El caso mínimo de $\beta = 100$ no impide el funcionamiento del dispositivo, tan solo afecta su ganancia. No sucede lo mismo con el caso máximo. Con el valor de $\beta = 262$ para el cual se diseño el amplificador la tensión $V_{CEQ}$ ya se encuentra en su valor mínimo, si tomasemos un $\beta$ mayor se incrementaría la corriente del colector, cayendo más tensión en $R_C$ y disminuyendo aún más $V_{CEQ}$ superando su cota mínima ($\beta \uparrow, I_C \uparrow, V_{CEQ} \downarrow $). Entonces el caso limitante es el exceso del párametro $\beta$.\\
+
+Con lo cual para el rango [100 - 262] el transistor está en MAD y cumple las condiciones de operación, con menor ganancia a $\beta$ menor. Entonces el parámetro admite una variación del $62\%$ en déficit. Para el rango [262 - 630] el dispósitivo producirá una señal con distorsión por saturación, es decir $\beta$ no tiene margen de variación por exceso.\\
+
+%Si suponemos que el amplificador se implementa con un transistor de un lote de 530 amplificadores, donde el parámetro $\beta$ es equiprobable, entonces la probabilidad de que la implementación falle es del $69\% \ (\frac{388}{530}\cdot 100)$.\\
+
+El hecho de poder disminuir el parámetro sin alterar la zona de operación del transistor se debe a que la corriente de base $I_B$ es independiente de $\beta$, es decir, no cambia, luego al bajar $\beta$ se produce una disminución de la corriente de colector $I_C$, cayendo menor tensión en $R_C$, con lo cual $V_{CEQ}$ aumenta ($\beta \downarrow, I_C \downarrow, V_{CEQ} \uparrow$). En la polarización normalizada para $\beta = 262$, $V_{CEQ}$ está muy cerca de su valor mínimo luego tiene un amplio margen para aumentar, es decir, $\beta$ tiene mucho margen para disminuir.\\
+
+Podemos decir que el diseño del amplificador \textbf{no es robusto} pues un pequeño incremento de $\beta$ puede llevarlo a tener distorsión por saturación. 
+\vspace{3cm}
+\begin{table}[ht!]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $\beta$ &\multicolumn{3}{|c|}{Punto de Trabajo }                              & \multicolumn{2}{|c|}{Resistencias Fijas}    & \multicolumn{4}{|c|}{Ganancias}\\ \hline
+            &$V_{CEQ}\ (V)$      & $I_{CQ}\ (mA)$        & $I_{BQ}\ (uA)$         & $R_C\ (\Omega)$ & $R_B\ (k\Omega)$          & $A_{vo}$ &Var.\ \% &  $A_{vs}$    &Var.\ \%    \\ \hline
+            &\multirow{3}{*}{2.64}& \multirow{3}{*}{3.54} & \multirow{3}{*}{35.36} &                 &                          &          &        &         &           \\ 
+        100 &                    &                       &                        & 270             &   82                      & 36.90    &   -38\%     &  5.26   &  -38\%     \\  
+            &                    &                       &                        &                 &                           &          &        &         &           \\  \hline
+\end{tabular}
+\end{center}
+\caption{Punto de polarización con dispersión de $\beta$}
+\label{tab:multicol}
+\end{table}
+
+\vfill
+
+\subsection{Simulación}
+\begin{figure}[H]
+    \hspace{2cm}
+    \includegraphics[scale=0.3]{ESQ_SIM_SPICE.png}
+    \caption{Esquemático de simulación en \textit{LTSpice}.}
+\end{figure}
+
+Previamente a la implementación del amplificador se realiza una simulación en \textit{LTSpice} de la figura (3) para corroborar las cuentas teóricas y los valores de resistencias elegidos. El modelo elegido es el \textbf{Q2PC4081R/PLP} de la biblioteca \textbf{phil-bjt.lib} debido a que su parámetro $\beta$ (265.4) es cercano al valor del transistor real (262).\\
+Las distintas mediciones se realizan con algunas modificaciones del esquemático de la figura (3), donde los valores de resistencias son los obtenidos en la normalización de la seccion \textit{Diseño del amplificador-Elección de resistencias}, los resultados se muestran en el cuadro (2.4).\\
+Los parámetros del amplificador $A_{vs},A_{vo}$ se obtienen a partir de las señales dadas en las figuras (4), (5) y (6) obtenidas de \textit{LTSpice}. Las resistencias de salida y entrada se obtienen de la misma forma que en el caso experimental (ver sección \textit{Implementación-Mediciones}).  
+\vspace{3cm}
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{Punto de Trabajo Simulado}                      & \multicolumn{2}{|c|}{Resistencias Simuladas} & \multicolumn{4}{|c|}{Parámetros del Amplificador Simulados}  \\ \hline
+    $V_{CEQ}\ (V)$        & $I_{CQ}\ (mA)$         & $I_{BQ}\ (uA)$         &  $R_C\ (\Omega)$ & $R_B\ (k\Omega)$             & $R_{IN}\ (\Omega)$ & $R_{OUT}\ (\Omega)$ & $A_{vo}$  & $A_{vs}$  \\ \hline
+    \multirow{3}{*}{1.258}& \multirow{3}{*}{8.67}  & \multirow{3}{*}{35.46} &             &                                    &                    &                    & \multirow{3}{*}{} &\multirow{3}{*}{}  \\
+                          &                        &                        &  270       &  82                                & 734.15            &  270                 &   82.5         &   13.2      \\  
+                          &                        &                        &            &                                    &                  &                       &              &            \\  
+    \hline
+\end{tabular}
+\end{center}
+\caption{Punto de polarización y parámetros simulados}
+\label{tab:multicol}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{SIM_RIN_VS60mV.png}
+    \caption{Señales de entrada simuladas con $v_s = 60\ mV$.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{SIM_ROUT_VS60mV.png}
+    \caption{Señales de salida simuladas con $v_s = 60\ mV$.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{SIM_VOUT_VIN_VS5mV.png}
+    \caption{Señales de entrada y salida simuladas con $v_s = 5\ mV$.}
+\end{figure}
+
+
+\newpage
+\section{Implementación}
+
+\subsection{Fuente de alimentación}
+Para emular la batería (\textbf{Li-Po}) con que opera el amplificador, de tensión $3.6\ V$, se utilizó el circuito presentado en la figura (7) con el regulador de tensión \textbf{LM317}\footnote{http://www.ti.com/lit/ds/symlink/lm317.pdf}. Donde $R_{var}$ es un potenciómetro que se ajusta hasta alcanzar una tensión de $3.6\ V$ en $OUT$.
+
+                          \begin{figure}[ht!]
+                                            \centering
+                                            \begin{circuitikz}
+                                         \draw
+                                          (0,0) node[draw,minimum width = 2cm, minimum height = 1cm,anchor=south west] at (0,0){LM317}
+                                          (0,0.5) -- ++ (0,0) to[short,-*] ++(-1,0) to[C] node[above = 1cm, right = 3mm]{$0.1\ uF$} ++(0,-2.5) node[ground]
+                                          ;
+                                         \draw
+                                          (-1,0.5) -- ++ (0,0) to[short,-o] ++(-1,0) node[left]{IN} node[above = 0.5cm]{\small Fuente Maise HY3005D}
+                                          ;
+                                         \draw
+                                          (1,0) -- ++ (0,0) to[short] ++(0,-1) to[short,-*] ++(2,0) to[vR] node[above = 1cm,right=4mm]{$1\ k\Omega$} ++(0,-2) node[ground]
+                                          ;
+                                         \draw
+                                          (2,0.5) -- ++ (0,0) to[short] ++(1,0) to[R] node[above = 0.5cm, right= 4mm]{$270\ \Omega$} ++(0,-1.5)
+                                          (3,0.5) -- ++ (0,0) to[short,*-*] ++(2,0) to[C] node[above = 1cm, right = 4mm]{$1\ uF$} ++(0,-2.5) node[ground]
+                                          ;
+                                         \draw
+                                          (5,0.5) -- ++ (0,0) to[short,-o] ++(1,0) node[right]{OUT}
+                                          ;
+                                          %\mymeter{M}{0}
+                                            \end{circuitikz}
+                                            \caption{Emulador de batería - LM317}
+                                          \end{figure}
+
+\subsection{Micrófono}
+
+\newcolumntype{C}[1]{>{\centering}m{#1}} % 2
+
+
+
+\begin{flushleft}
+ \begin{tabular}{C{.45\textwidth}C{.2\textwidth}} % 3
+%
+    {\normalsize
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{Amplitudes pico}           & \multicolumn{2}{|c|}{Resistencias}               \\ \hline
+    $v_s\ (mV)$          & $\bar v_s\ (mV)$         & $R_X\ (k\Omega)$       & $R_S\ (k\Omega)$        \\ \hline
+    60                   &     25.3                 & 3.9                    & 5.35                    \\ 
+    60                   &     33                   & 4.7                    & 3.85                    \\  
+    \hline
+    \end{tabular}
+    }\par%\par\phantom{ }\par
+    \captionof{table}{Mediciones de resistencia series $R_S$.}
+% 1
+  &
+% 1
+  \begin{circuitikz}[scale=0.8]
+                                            \draw
+                                            (0,0) -- ++(0,0) to[sV] node[left = 8mm, above = -12mm]{$v_s$} ++(0,2) to[R] node[left = 11mm,above=1mm]{$R_{g}$} ++(2,0) to[R] node[above=4mm, left=8mm]{$R_1$} node[above=-6mm,left =3mm]{$4.7\ k\Omega$} ++(2,0) to[R] node[above=4mm, left=5mm]{$R_3$} node[above=-6mm,left =-2mm]{$3.9\ k\Omega$} ++(2,0) to[short,-o] ++(0,0) node[right]{$v_s$}
+                                            ;
+                                            \draw
+                                            (4,2) -- ++(0,0) to[R,*-] node[above=4mm,right=4mm]{$R_2$} node[above=0mm,right=4mm]{$470\ \Omega$} ++(0,-2) node[ground]
+                                            ;
+                                            \draw
+                                            (0,0) -- ++ (0,0) node[ground]
+                                            ;
+  \end{circuitikz}\par
+  \captionof{figure}{Circuito emulador del micrófono.}
+%
+\end{tabular}
+\end{flushleft}
+
+
+
+El micrófono \textbf{KNOWLES ELECTRONICS - EM-23046-000} de resistencia serie $4.4\ k\Omega$ se emula utilizando el circuito de la figura (8). Donde la señal $v_s$ es provista por un generador de funciones (GoldStar FG-8002) de una resistencia interna estimada en $50\ \Omega$. Para verificar que la resistencia equivalente total sea de $4.4\ k\Omega$ se realiza una medición experimental de la tensión $v_s$ antes y después de conectar una resistencia de prueba $R_x = 4,7\ k\Omega$. El circuito es tal que si el generador tiene efectivamente $50\ \Omega$, la resistencia equivalente total será ($(R_3//R_2) + R_1 + R_g = 4.3\ k\Omega$). Para verificar realizamos una medición expeprimental de $R_S$ midiendo las amplitudes pico $v_s$ antes y después de conectar una resistencia de prueba $R_X$ y despejando del divisor resistivo. Para un $v_s$ en vacío de $60\ mV$ pico se obtienen los valores de $R_S$ dados en el cuadro (3.1) para distintos valores de $R_X$.  En cuanto a la frecuencia, se fijo con el generador de funciones en $973.3\ Hz$.
+
+\begin{equation}
+R_S = (\frac{v_s}{\bar v_s}-1)R_X \nonumber
+\end{equation}
+
+%\begin{figure}
+%      \begin{circuitikz}[scale=1.2]
+%                                            \draw
+%                                            (0,0) -- ++ (0,0) to[sV] node[left = 8mm, above = -12mm]{$v_s$} ++(0,2) to[R] node[above]{$R_{S}$} ++(2,0) to[short,-o] ++(1,0)
+%                                            (0,0) -- ++ (0,0) node[ground]
+%                                            ;
+%      \end{circuitikz}
+%      \caption{Micrófono}
+%\end{figure}
+
+\newpage
+\subsection{Mediciones}
+
+                                        \begin{figure}[ht!]
+                                            \centering
+                                            \begin{circuitikz}
+                                         \draw
+                                          % Drawing a npn transistor
+                                          (0,0) node[npn](npn1){} 
+                                          % Making connections from transistor using relative coordinates
+                                          (npn1.B) node[left=6mm, above=-6mm]{BC337} % Labelling the transistor
+                                          (npn1.B) -- ++(-0.5,0) to[short] ++(0,0.85) to[R] node[left=6mm,above=-7mm]{$82\ k\Omega$} ++(0,2) to[ammeter] ++ (0,1) to[short] node[right=6mm,above=2mm]{$Vcc$} ++(0,0.5) to[short] ++(1.36,0)
+                                          (npn1.C) -- ++(0,0) to[R] node[right=7mm,above=-7mm]{$270\ \Omega$} ++(0,2) to[ammeter] ++ (0,1) to[short] ++(0,0.58)
+                                          (npn1.C) -- ++(0,0) to[short,*-o] ++(2,0) node[right=2mm]{$V_{out}$}
+                                          (npn1.C) -- ++(1,0) to[voltmeter,*-] ++(0,-2) node[ground]
+                                          ;
+                                          \draw 
+                                          (npn1.B) -- ++(-0.5,0) to[short,*-o] ++(-1,0) node[above=2mm]{$V_{in}$} to[C] node[above = 7mm,right=2mm]{$C_{in}$} node[above=-8mm,right=1mm]{$100\ uF$} ++(-2,0) to[R] node[above = 4mm,right=1mm]{$R_S$} ++(-2,0) to[sV] node[left = 14mm,above = 6mm]{$60\ mVpico$} node[left = 10mm,above = 2mm]{$1\ kHz$} ++(0,-1.5)  node[above = 6cm]{\small Osciloscopio Siglent SDS1102CML} node[above = 5.5cm]{\small Multímetro Sonel CMM-10} node[above=5cm]{\raggedleft\small G.Funciones GoldStar FG-8002} node[ground]
+                                          ;
+                                          \draw 
+                                          (-2.5,-1.5) node[right]{CH2} to[short] ++(0,1) node[vcc]
+                                          ;
+                                          \draw
+                                          (2,2.3) node[right]{CH1} to[short] ++(0,-1) node[vee]
+                                          ; 
+                                          \draw 
+                                          (npn1.E) -- ++(0,0) node[ground]  
+                                          ;
+
+                                          %\mymeter{M}{0}
+                                            \end{circuitikz}
+                                            \caption{Banco de mediciones}
+                                          \end{figure}
+
+
+
+Se implementó el amplificador en una placa experimental con las resistencias normalizadas obtenidas en la sección \textit{Diseño del amplificador - Elección de resistencias} ambas de tolerancia de $5\%$. Se acoplaron la fuente de alimentación al $V_{CC}$ del amplificador y el emulador del micrófono a la base de este, separados por un capacitor de $100\ uF$, tal como se indica en la figura (9). \\
+En el cuadro (3.2) se muestran el \textbf{punto de polarización medido} y los \textbf{parámetros del amplificador medidos} respectivamente. También se incluyen las mediciones de los valores de las resistencias.\\
+La ganancia $A_{vo}$ se obtiene por inspección directa de los resultados del osciloscopio (figura 13). De la figura (11) se puede ver que $v_{be} = 9.4\ mV$.
+\vspace{3cm}
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{Punto de Trabajo Medido}                   & \multicolumn{2}{|c|}{Resistencias Medidas}  & \multicolumn{4}{|c|}{Parámetros del Amplificador medidos}    \\ \hline
+    $V_{CEQ}\ (V)$     & $I_{CQ}\ (mA)$      & $I_{BQ}\ (uA)$       &  $R_C\ (\Omega)$ & $R_B\ (k\Omega)$         & $R_{IN}\ (\Omega)$ & $R_{OUT}\ (\Omega)$ & $A_{vo}$               & $A_{vs}$             \\ \hline
+    \multirow{3}{*}{}  & \multirow{3}{*}{}   & \multirow{3}{*}{}    &                  &                          &                    &                     & \multirow{3}{*}{82.98} &\multirow{3}{*}{13}   \\
+        1.162          &    9.25             &    35.7              &   267.1          &    82.2                  &  870.53            &  276.92             &                        &                       \\  
+                       &                     &                      &                  &                          &                   &                     &                        &               \\  
+    \hline
+\end{tabular}
+\end{center}
+\caption{Punto de polarización y parámetros del amplificador medidos.}
+\label{tab:multicol}
+\end{table}
+
+\newpage
+\subsubsection{Resistencia de entrada}
+
+\begin{figure}[h!]
+\centering
+\begin{circuitikz}
+                                            \draw
+                                            (0,0) -- ++(0,0) to[sV] node[left = 8mm, above = -12mm]{$v_s$} ++(0,2) to[R] node[left = 11mm,above=1mm]{$R_{g}$} ++(2,0) to[R] node[above=4mm, left=8mm]{$R_1$} node[above=-4mm,left =3mm]{$4.7\ k\Omega$} ++(2,0) to[R] node[above=5mm, left=8mm]{$R_3$} node[above=-5mm,left =2mm]{$3.9\ k\Omega$} ++(2,0) to[short,] ++(1,0) to[C] node[above=4mm]{$100\ uF$} ++(1,0) to[R] node[right=6mm,above=10mm]{$R_{IN}$} ++(0,-2) node[ground] 
+                                            ;
+                                            \draw
+                                            (4,3.5) -- ++(0,0) node[above]{CH1} to[short] ++(0,-1) node[vee]
+                                            ;
+                                            \draw
+                                            (6,3.5) -- ++(0,0) node[above]{CH2} to[short] ++(0,-1) node[vee]
+                                            ;
+                                            \draw[dashed]
+                                            (6.3,-1) -- ++(0,0) to[short] ++(0,4) to[short] ++(2,0) node[above]{AMP.}
+                                            ;
+                                            \draw[dashed]
+                                            (6.3,-1) -- ++(0,0) to[short] ++(2,0)
+                                            ;
+                                            \draw
+                                            (4,2) -- ++(0,0) to[R,*-] node[above=9mm,right=-9mm]{$R_2$} node[above=5mm,right=-12mm]{$470\ \Omega$} ++(0,-2) node[ground]
+                                            ;
+                                            \draw
+                                            (0,0) -- ++ (0,0) node[ground]
+                                            ;
+\end{circuitikz}
+\caption{Banco de medición para $R_{IN}$.}
+\end{figure}
+
+El valor de $R_{IN}$ se obtuvo mediante la medición de la tensión $v_i$ y la tensión en el nodo común a $R_1$,$R_2$ y $R_3$ tal como se indica en la figura (10). Luego notando que la corriente que circula por $R_{IN}$ es la misma que pasa por $R_3 = 3.9\ k\Omega$ se igualan las expresiones y se despeja una expresión para la resistencia de entrada dada por la ecuación (3.1). Los valores $v_{in} = 20\ mV$ y $v_p = 109.6\ mV$, ambos pico a pico, se midieron con los canales CH2 y CH1 respectivamente (ver figura 14). Para estos valores se despeja $R_{IN} = 870.5\ \Omega$.
+\begin{equation}
+R_{IN} = \frac{v_{in}}{v_p - v_{in}} \cdot R_3 
+\end{equation}
+
+\subsubsection{Resistencia de salida}
+
+\begin{figure}[h!]
+\centering
+\begin{circuitikz}
+                                            \draw
+                                            (0,0) -- ++(0,2) to[R] node[above=5mm,left=3mm]{$R_{OUT}$} ++(2,0) to[short] ++(1,0) to[C] node[above=7mm,left=0mm]{$100\ uF$} ++(1.5,0) to[R] node[right=6mm,above=8mm]{$R_P$} node[right=8mm,above=5mm]{$270\ \Omega$} ++(0,-2) node[ground]
+                                            ;
+                                            \draw
+                                            (0,2) -- ++(0,0) to[american current source] node[left]{$g_m v_{be}$} ++(0,-2)
+                                            ;
+                                            \draw
+                                            (0,0) -- ++(0,0) node[ground]
+                                            ;
+                                            \draw[dashed]
+                                            (2.25,-1) -- ++(0,0) to[short] ++(0,4) to[short] ++(-3,0) node[above]{AMP.}
+                                            (2.25,-1) -- ++(0,0) to[short] ++(-3,0)
+                                            ;
+                                            \draw
+                                            (4.5,3.5) -- ++(0,0) node[right]{CH1} to[short] ++(0,-1) node[vee]
+                                            ;
+\end{circuitikz}
+\caption{Banco de medición para $R_{OUT}$.}
+\end{figure}
+
+Se puede determinar el valor de la resistencia de salida $R_{OUT}$ experimentalmente aplicando una resistencia de prueba $R_P = R_C$ a la salida del amplificador y siendo la corriente por $R_{OUT}$ igual a la que pasa por $R_P$, igualando se despeja una expresión para la resistencia de salida dada por la ecuación (3.2). Los valores pico a pico de $v_{o} = 1.58\ V$ y $v_p = 780\ mV$ (ver figuras (15) y (16)),se miden tal como indica el esquemático de la figura (12). Para estos valores se despeja $R_{OUT} = 276.92\ \Omega$.
+
+\begin{equation}
+R_{OUT} = (\frac{v_{o}}{v_p}-1)\cdot R_P
+\end{equation}
+
+\newpage
+\subsubsection{Resistencias parásitas}
+                                          \begin{figure}[h!]
+                                            \centering
+                                            \begin{circuitikz}
+                                         \draw
+                                          % Drawing a npn transistor
+                                          (0,0) node[npn](npn1){} 
+                                          % Making connections from transistor using relative coordinates
+                                          (npn1.B) node[left=6mm, above=-6mm]{BC337} % Labelling the transistor
+                                          (npn1.B) -- ++(-0.5,0) to[short] ++(0,0.85) to[R] node[left]{$R_b$} ++(0,1.5) to[short] node[right=6mm,above=2mm]{$Vcc$} ++(0,0.5) to[short] ++(1.36,0)
+                                          (npn1.C) -- ++(0,0) to[R] node[right]{$R_c$} ++(0,1.5) to[short] ++(0,0.58)
+                                          (npn1.C) -- ++(0,0) to[short,*-o] ++(1,0) node[right=2mm]{$V_{out}$} 
+                                          (npn1.B) -- ++(-0.5,0) to[short,*-o] ++(-1,0) node[left=2mm]{$V_{in}$} 
+                                          (npn1.E) -- ++(0,0) to[R] node[right=6mm,above= 8mm]{$R_{par}$} ++(0,-1) node[ground]  
+                                          %(nmos1.D) -- ++(0,0.46) to[ammeter,mirror] ++(-2.7,0)
+                                          %(nmos1.D) -- ++(0,0) to[short,*-] ++(1,0) to[voltmeter,color=white,name=M] ++(0,-1.55)
+                                          %(nmos1.S) -- ++(0,0) to[short] ++(-2,0)
+                                          %(nmos1.S) -- ++(0,0) to[short] ++(2,0) to[short] ++(0,1) to[battery] node[right]{$5 V$} ++(0,1.75) to[short] ++(-5,0) to[pR] node[left=6mm,above=10mm]{$1k\Omega$} ++(0,-1.5) to[short] ++(0,-1.25) to[short] ++(2,0)
+                                          %(nmos1.S) -- ++(0,-0.25) node[ground]  
+                                          ;
+                                          %\mymeter{M}{0}
+                                            \end{circuitikz}
+                                            \caption{Resistencia párásita.}
+                                          \end{figure}
+
+Incialmente la implementación se hizo en un protoboard, pero los resultados no eran los esperados, la tensión $v_{be}$ era mucho mayor a la esperada y se obtenía muy poca ganancia. El problema eran las pistas del protoboard que generaban una resistencia de unos $5\ \Omega$ entre el emisor y tierra. Luego cuando mediamos $v_{be}$ en realidad estabamos midiendo $v_{b}$ más la tensión sobre $R_{par.}$. Este valor era mucho mayor a $10\ mV$ luego $A_{vo} = v_{o}/v_{in}$ disminuía. La solución fue soldar el circuito tal que no haya resistencia en el emisor. Todos los resultados de este informe son sobre el circuito soldado. 
+
+
+\subsubsection{Capturas del Osciloscopio}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{IMG1.png}
+    \caption{Tensiones de entrada (rosa) y salida (amarillo).}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{IMG2.png}
+    \caption{Tensiones $v_{in}$ (azul) y $v_p$ para cálculo de $R_{IN}.$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{IMG3.png}
+    \caption{Tensión $v_{out}$ con carga de $270\ \Omega$ para cálculo de $R_{OUT}.$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.65]{IMG4.png}
+    \caption{Tensión $v_{out}$ sin carga para cálculo de $R_{OUT}.$}
+\end{figure}
+
+
+\newpage
+\section{Análisis de los resultados}
+Inicialmente se plantearon unas condiciones de diseño que determinan una alta ganancia sin tener distorsión de ningún tipo. La condición era la de fijar un valor de tensión colector - emisor tan pequeño como podamos dentro de un rango para el cual el amplificador opera correctamente. Se eligió dentro de ese rango una tensión $V_{CEQ} = 1.3\ V$, cercana al mínimo, que determina un punto de polarización dado por ciertos valores de las resistencias de base y colector. Al normalizar, los valores de estas resistencias cambian y por lo tanto cambia el punto de polarización. Los valores normalizados de $R_C = 270\ \Omega$ y $R_B = 82\ k\Omega$ son ambos mayores que los incialmente obtenidos, es decir, al aumentar la resistencia de base disminuye la corriente de base y también la corriente de colector. Al aumentar $R_C$ aumenta la tensión que cae en esta resistencia y con lo cual disminuye $V_{CEQ}$, quedando muy cerca del valor mínimo teórico. Esto explica las diferencias entre los cuadros (2.1) y (2.2). 
+
+En las simulaciones (cuadro 2.4) se puede ver una diferencia con el diseño normalizado (cuadro 2.2), el transistor de la biblioteca tiene un parámetro $\beta$ mayor al de la implementación, sin embargo, la corriente de colector es menor en la simulación que en el cálculo teórico, lo cual nos indica que en la realidad puede haber factores que disminuyan esa corriente de colector obteniendose una tensión $V_{CEQ}$ que será mayor a la esperada, es decir, podríamos acercanos más al límite teórico sin realmente alcanzarlo en la práctica. Teniendo esto en cuenta y el hecho de que las simulación produce señales de salida sin distorsión de ningún tipo decimos que la simulación respalda la elección de resistencias.
+
+Las mediciones (cuadro 3.2) son muy proximas a los valores calculados. La tensión colector-emisor resultó ser ligeramente mayor a la calculada (cuadro 2.2), debido a una variación del valor real de $R_C$ respecto al valor usado en las cuentas. Los resultados verifican todos los límites teóricos y no presentan distorsiones: $V_{CEQ} > V_{CE}_{min} = 1.13\ V$, $I_C_{min} < I_{CQ} < I_{C}_{max}$ y $v_{be} = 9.4\ mV < 10\ mV$.
+
+Con respecto a la ganancia, el valor establecido con las mediciones es menor al calculado. Esto también es consecuencia del corrimiento del $V_{CEQ}$,pues su aumento produce una menor ganancia. Sin embargo el valor sigue siendo relativamente alto.
+
+\section{Referencias}
+\begin{enumerate}[{[}1{]}]
+  \item 86.03/66.25 Dispositivos Semiconductores, FIUBA, Apuntes de cátedra.
+  \item Pedro Julián, Dispositivos Semiconductores, Alfaomega, Primera edición.
+\end{enumerate}
+
+\end{document}
